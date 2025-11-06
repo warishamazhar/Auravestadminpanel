@@ -90,7 +90,13 @@ const ManagePackage = () => {
   ];
 
   const handleSelectPlan = (plan) => {
-    setSelectedPlan(plan);
+    // Ensure we preserve the _id or id from the plan object
+    const planWithId = {
+      ...plan,
+      _id: plan._id || plan.id, // Ensure _id is always set
+    };
+    
+    setSelectedPlan(planWithId);
     setIsModalOpen(true);
     setIsCreateMode(false);
 
@@ -101,7 +107,7 @@ const ManagePackage = () => {
       profitPercentage: plan.profitPercentage || "",
       profitLimit: plan.profitLimit || plan.limit || "",
       tags: extractTags(plan.features) || "",
-      status: extractStatus(plan.features),
+      status: extractStatus(plan.features, plan.status),
       perDayRoi: plan.perDayRoi || "",
     });
   };
@@ -127,9 +133,17 @@ const ManagePackage = () => {
     return tagLine ? tagLine.replace("Tags: ", "") : "";
   };
 
-  const extractStatus = (features) => {
-    const statusLine = features.find((f) => f.startsWith("Status:"));
-    return statusLine?.includes("Active") ?? true;
+  const extractStatus = (features, planStatus) => {
+    // First check if plan has direct status property
+    if (planStatus !== undefined) {
+      return planStatus;
+    }
+    // Fallback to extracting from features array
+    if (features && Array.isArray(features)) {
+      const statusLine = features.find((f) => f && f.startsWith("Status:"));
+      return statusLine?.includes("Active") ?? true;
+    }
+    return true; // Default to active
   };
 
   const handleCloseModal = () => {
@@ -245,11 +259,13 @@ const ManagePackage = () => {
         }
       } else {
         // Update existing package
-        if (!selectedPlan?._id) {
+        const packageId = selectedPlan?._id || selectedPlan?.id;
+        if (!packageId) {
           toast.error("Package ID is missing. Cannot update package.");
+          console.error("Selected plan:", selectedPlan);
           return;
         }
-        res = await updatePackageAdmin(selectedPlan._id, payload);
+        res = await updatePackageAdmin(packageId, payload);
         if (res?.success) {
           toast.success(res?.message || "Plan updated successfully!");
           handleCloseModal();

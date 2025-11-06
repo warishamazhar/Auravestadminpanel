@@ -77,12 +77,6 @@ const Dashboard1 = () => {
 
   const revenueOverview = [
     {
-      title: "Total Partners",
-      value: `${Number(totalIncome?.partners ?? 0)}`,
-      icon: "https://img.icons8.com/3d-fluency/94/conference-call.png",
-      path: AuthenticatedUserRouters.MY_REFERRALS,
-    },
-    {
       title: "Active Partners",
       value: `${Number(totalIncome?.partnerActive ?? 0)}`,
       icon: "https://img.icons8.com/3d-fluency/94/ok.png",
@@ -97,29 +91,11 @@ const Dashboard1 = () => {
       data: "inactive",
     },
     {
-      title: "Total Downline Users",
-      value: `${Number(totalIncome?.totalDownlineUsers ?? 0)}`,
-      icon: "https://img.icons8.com/3d-fluency/94/user-group-woman-woman--v3.png",
-      path: AuthenticatedUserRouters.MY_TEAM,
-    },
-    {
-      title: "Total Trading Income",
-      value: `$ ${Number(totalIncome?.totalTrading ?? 0).toFixed(2)}`,
-      icon: "https://img.icons8.com/3d-fluency/94/receive-cash.png",
-      path: AuthenticatedUserRouters.TRADING_INCOME_HISTORY,
-    },
-    {
       title: "Today Trading Income",
       value: `$ ${Number(totalIncome?.todayTrading ?? 0).toFixed(2)}`,
       icon: "https://img.icons8.com/3d-fluency/94/money.png",
       path: AuthenticatedUserRouters.TRADING_INCOME_HISTORY,
       data: "today",
-    },
-    {
-      title: "Total Level Income",
-      value: `$ ${Number(totalIncome?.totalLevel ?? 0).toFixed(2)}`,
-      icon: "https://cdn-icons-png.flaticon.com/512/10102/10102408.png",
-      path: AuthenticatedUserRouters.LEVEL_INCOME_HISTORY,
     },
     {
       title: "Today Level Income",
@@ -129,23 +105,11 @@ const Dashboard1 = () => {
       data: "today",
     },
     {
-      title: "Total Referrals Income",
-      value: `$ ${Number(totalIncome?.totalReferral ?? 0).toFixed(2)}`,
-      icon: "https://img.icons8.com/3d-fluency/94/group.png",
-      path: AuthenticatedUserRouters.REFERRAL_INCOME_HISTORY,
-    },
-    {
       title: "Today Referrals Income",
       value: `$ ${Number(totalIncome?.todayReferral ?? 0).toFixed(2)}`,
       icon: "https://img.icons8.com/3d-plastilina/69/share--v1.png",
       path: AuthenticatedUserRouters.REFERRAL_INCOME_HISTORY,
       data: "today",
-    },
-    {
-      title: "Total Investement",
-      value: `$ ${Number(totalIncome?.totalTransaction ?? 0).toFixed(2)}`,
-      icon: "https://img.icons8.com/3d-fluency/94/transaction.png",
-      path: AuthenticatedUserRouters.INVESTMENT_HISTORY,
     },
     {
       title: "Today Investement",
@@ -155,12 +119,6 @@ const Dashboard1 = () => {
       data: "today",
     },
     {
-      title: "Total Team Transaction",
-      value: `$ ${Number(totalIncome?.totalTeamTransaction ?? 0).toFixed(2)}`,
-      icon: "https://img.icons8.com/color/48/transaction.png",
-      path: AuthenticatedUserRouters.TRANSACTIONS,
-    },
-    {
       title: "Today Team Transaction",
       value: `$ ${Number(totalIncome?.todayTeamTransaction ?? 0).toFixed(2)}`,
       icon: "https://img.icons8.com/pulsar-gradient/48/refund-2.png",
@@ -168,23 +126,11 @@ const Dashboard1 = () => {
       data: "today",
     },
     {
-      title: "Total Withdrawals",
-      value: `$ ${Number(totalIncome?.totalWithdraw ?? 0).toFixed(2)}`,
-      icon: "https://img.icons8.com/3d-fluency/94/money-bag.png",
-      path: AuthenticatedUserRouters.WITHDRAWAL_HISTORY,
-    },
-    {
       title: "Today Withdrawals",
       value: `$ ${Number(totalIncome?.todayWithdraw ?? 0).toFixed(2)}`,
       icon: "https://img.icons8.com/isometric/50/card-in-use.png",
       path: AuthenticatedUserRouters.WITHDRAWAL_HISTORY,
       data: "today",
-    },
-    {
-      title: "Total Income",
-      value: `$ ${Number(totalIncome?.totalIncome ?? 0).toFixed(2)}`,
-      icon: "https://img.icons8.com/3d-fluency/94/sales-performance.png",
-      path: AuthenticatedUserRouters.INCOME_HISTORY,
     },
     {
       title: "Today Income",

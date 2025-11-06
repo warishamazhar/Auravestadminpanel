@@ -224,7 +224,7 @@ export const updatePackageAdmin = async (id, payload) => {
       return { success: false, message: "Package ID is required" };
     }
     const response = await Axios.put(
-      `${adminApi}/package/update?packageId=${id}`,
+      `${adminApi}/package/update/${id}`,
       payload
     );
     return response?.data;
