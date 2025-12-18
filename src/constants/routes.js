@@ -24,8 +24,10 @@ export const LandingRouters = {
 export const AuthenticatedUserRouters = {
   DASHBOARD: "/",
   MY_TEAM: "/my-team",
+  MY_TEAM_DIVISION: "/my-team-division",
   MY_REFERRALS: "/my-referrals",
   INVEST: "/invest",
+  REINVEST: "/reinvest",
   MY_EARNING: "/my-earning",
   WITHDRAW: "/withdraw",
   PROFILE: "/profile",

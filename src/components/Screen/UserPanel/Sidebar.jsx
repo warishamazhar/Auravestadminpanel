@@ -190,6 +190,15 @@ const Sidebar = ({ isOpen, onClose }) => {
                   setOpenDropdown(null); // close all dropdowns on link click
                 }}
               />
+              <NavLink
+                to={AuthenticatedUserRouters.MY_TEAM_DIVISION}
+                icon="fa-solid fa-sitemap"
+                text="My Team"
+                onClose={() => {
+                  onClose();
+                  setOpenDropdown(null); // close all dropdowns on link click
+                }}
+              />
             </SidebarDropdown>
             <NavLink
               to={AuthenticatedUserRouters.AI_TRADE}
@@ -211,6 +220,15 @@ const Sidebar = ({ isOpen, onClose }) => {
                 to={AuthenticatedUserRouters.INVEST}
                 icon="fa-solid fa-piggy-bank"
                 text="Investment"
+                onClose={() => {
+                  onClose();
+                  setOpenDropdown(null); // close all dropdowns on link click
+                }}
+              />
+              <NavLink
+                to={AuthenticatedUserRouters.REINVEST}
+                icon="fa-solid fa-arrows-rotate"
+                text="Reinvestment"
                 onClose={() => {
                   onClose();
                   setOpenDropdown(null); // close all dropdowns on link click

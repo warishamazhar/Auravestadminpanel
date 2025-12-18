@@ -12,7 +12,9 @@ import {
 import DashboardLayout2 from "../../screens/UserPanel/DashboardLayout2";
 import Dashboard1 from "../../screens/UserPanel/Dashboard1";
 import InvestmentPage from "../../screens/UserPanel/InvestmentPage";
+import ReinvestmentPage from "../../screens/UserPanel/ReinvestmentPage";
 import Teams from "../../screens/UserPanel/Teams";
+import MyTeamPage from "../../screens/UserPanel/MyTeamPage";
 import Referrals from "../../screens/UserPanel/Referrals";
 import ProfilePage from "../../screens/UserPanel/ProfilePage";
 import { useSelector } from "react-redux";
@@ -86,6 +88,10 @@ const Authenticated = () => {
               element={<Teams />}
             />
             <Route
+              path={AuthenticatedUserRouters.MY_TEAM_DIVISION}
+              element={<MyTeamPage />}
+            />
+            <Route
               path={AuthenticatedUserRouters.MY_REFERRALS}
               element={<Referrals />}
             />
@@ -101,6 +107,10 @@ const Authenticated = () => {
             <Route
               path={AuthenticatedUserRouters.INVEST}
               element={<InvestmentPage />}
+            />
+            <Route
+              path={AuthenticatedUserRouters.REINVEST}
+              element={<ReinvestmentPage />}
             />
             <Route
               path={AuthenticatedUserRouters.MY_EARNING}

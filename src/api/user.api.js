@@ -51,6 +51,24 @@ export async function getDirectUsers() {
   }
 }
 
+export async function getTeamDivision() {
+  try {
+    const response = await Axios.get(`${userApi}/get-team-division`);
+    return response?.data;
+  } catch (error) {
+    return { success: false, message: error.message || "API error" };
+  }
+}
+
+export async function getAllTeamMembers() {
+  try {
+    const response = await Axios.get(`${userApi}/get-all-team-members`);
+    return response?.data;
+  } catch (error) {
+    return { success: false, message: error.message || "API error" };
+  }
+}
+
 export async function getReferralPartners() {
   try {
     const response = await Axios.get(`${userApi}/get-partners`);
@@ -386,5 +404,37 @@ export const investInDollarBankFromWithdrawalWallet = async (payload) => {
     return response?.data;
   } catch (error) {
     return error?.response?.data || error;
+  }
+};
+
+// Reinvestment APIs
+export const getAvailableIncomeBalance = async () => {
+  try {
+    const response = await Axios.get(`${userApi}/get-income-balance`);
+    return response?.data;
+  } catch (error) {
+    return { success: false, message: error.message || "API error" };
+  }
+};
+
+export const reinvestFromIncome = async (payload) => {
+  try {
+    const response = await Axios.post(`${userApi}/reinvest`, payload, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    return response?.data;
+  } catch (error) {
+    return error?.response?.data || { success: false, message: error.message || "API error" };
+  }
+};
+
+export const getReinvestmentHistory = async () => {
+  try {
+    const response = await Axios.get(`${userApi}/get-reinvestment-history`);
+    return response?.data;
+  } catch (error) {
+    return { success: false, message: error.message || "API error" };
   }
 };
