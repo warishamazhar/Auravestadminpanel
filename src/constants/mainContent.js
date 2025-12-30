@@ -47,7 +47,7 @@ Axios.interceptors.request.use(
   (error) => Promise.reject(error)
 );
 
-// Response interceptor to handle 401 and "User not found" errors
+// Response interceptor to handle authentication errors only
 Axios.interceptors.response.use(
   (response) => response,
   (error) => {
@@ -56,14 +56,18 @@ Axios.interceptors.response.use(
       const message = error.response?.data?.message || error.response?.data?.error || "";
       const messageLower = message.toLowerCase();
       
-      // Check for 401 status or "User not found" message
-      if (
-        status === 401 || 
-        messageLower.includes("user not found") || 
+      // Only logout on authentication errors (401, 403) or specific auth-related messages
+      // Don't logout on 404 (resource not found) or other client errors
+      const isAuthError = status === 401 || status === 403;
+      const isAuthMessage = 
+        (messageLower === "user not found" && status === 401) || // Only if 401 with exact message
         messageLower.includes("unauthorized") ||
-        messageLower.includes("token") ||
-        messageLower.includes("invalid")
-      ) {
+        (messageLower.includes("token") && (messageLower.includes("invalid") || messageLower.includes("expired"))) ||
+        messageLower.includes("authentication failed") ||
+        messageLower.includes("please login") ||
+        messageLower.includes("session expired");
+      
+      if (isAuthError || isAuthMessage) {
         // Clear user data from Redux
         store.dispatch(logoutUser());
         

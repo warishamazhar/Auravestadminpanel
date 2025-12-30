@@ -53,6 +53,7 @@ export const AuthenticatedUserRouters = {
   USER_FUND_TRANSFER_HISTORY: "/fund-transfer-history",
   DOLLAR_BANK: "/dollar-bank",
   DOLLAR_BANK_INVESTMENTS: "/dollar-bank-investments",
+  DEPOSIT_CARD: "/deposit-card",
 }
 
 export const AuthenticatedAdminRouters = {

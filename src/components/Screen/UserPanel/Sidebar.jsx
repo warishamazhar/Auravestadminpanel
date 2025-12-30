@@ -304,6 +304,15 @@ const Sidebar = ({ isOpen, onClose }) => {
                   setOpenDropdown(null); // close all dropdowns on link click
                 }}
               />
+              <NavLink
+                to={AuthenticatedUserRouters.DEPOSIT_CARD}
+                icon="fa-solid fa-credit-card"
+                text="Deposit Card"
+                onClose={() => {
+                  onClose();
+                  setOpenDropdown(null); // close all dropdowns on link click
+                }}
+              />
             </SidebarDropdown>
             <NavLink
               to={AuthenticatedUserRouters.INVESTMENT_REPORT}

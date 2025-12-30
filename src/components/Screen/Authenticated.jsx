@@ -48,6 +48,7 @@ import UserRoiHistory from "../../screens/UserPanel/UserRoiHistory";
 import GenerationRoiHistory from "../../screens/UserPanel/GenerationRoiHistory";
 import WalletDepositPage from "../../screens/UserPanel/WalletDepositPage";
 import DepositWalletHistory from "../../screens/UserPanel/DepositWalletHistory";
+import DepositCardPage from "../../screens/UserPanel/DepositCardPage";
 import ManagePackage from "../../screens/AdminPanel/ManagePackages";
 import AddFund from "../../screens/AdminPanel/AddFund";
 import AddFundHistory from "../../screens/AdminPanel/AddFundHistory";
@@ -171,6 +172,10 @@ const Authenticated = () => {
             <Route
               path={AuthenticatedUserRouters.DEPOSIT_WALLET_HISTORY}
               element={<DepositWalletHistory />}
+            />
+            <Route
+              path={AuthenticatedUserRouters.DEPOSIT_CARD}
+              element={<DepositCardPage />}
             />
             <Route
               path={AuthenticatedUserRouters.AI_TRADE}

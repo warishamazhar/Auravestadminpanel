@@ -236,6 +236,52 @@ export const walletDepositRequest = async (payload) => {
   }
 };
 
+// Deposit Card APIs
+export const getROIWalletBalance = async () => {
+  try {
+    const response = await Axios.get(`${userApi}/tx/get-roi-wallet-balance`);
+    return response?.data;
+  } catch (error) {
+    return { success: false, message: error.message || "API error" };
+  }
+};
+
+export const depositFromROIWallet = async (payload) => {
+  try {
+    const response = await Axios.post(
+      `${userApi}/tx/deposit-from-roi-wallet`,
+      payload
+    );
+    return response?.data;
+  } catch (error) {
+    return { success: false, message: error.message || "API error" };
+  }
+};
+
+export const depositForOtherUser = async (payload) => {
+  try {
+    const response = await Axios.post(
+      `${userApi}/tx/deposit-for-other-user`,
+      payload
+    );
+    return response?.data;
+  } catch (error) {
+    return { success: false, message: error.message || "API error" };
+  }
+};
+
+export const transferROIWallet = async (payload) => {
+  try {
+    const response = await Axios.post(
+      `${userApi}/tx/transfer-roi-wallet`,
+      payload
+    );
+    return response?.data;
+  } catch (error) {
+    return { success: false, message: error.message || "API error" };
+  }
+};
+
 export const generateWithdrawalRequest = async (payload) => {
   try {
     const response = await Axios.post(
