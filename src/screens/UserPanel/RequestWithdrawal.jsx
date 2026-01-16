@@ -6,6 +6,9 @@ import {
   AlertCircle,
   CheckCircle,
   Copy,
+  TrendingUp,
+  Clock,
+  Briefcase
 } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
@@ -13,6 +16,8 @@ import {
   getOptForWithdrawal,
   verifyWithdrawalDetails,
 } from "../../api/user.api";
+import { Axios } from "../../constants/mainContent";
+import { loginUser } from "../../redux/slices/authSlice";
 import { setLoading } from "../../redux/slices/loadingSlice";
 import { set } from "lodash";
 import { setWithdrawalAmount } from "../../redux/slices/withdrawalSlice";
@@ -27,16 +32,46 @@ const RequestWithdrawal = () => {
   const [withdrawalAmount, setWithdrawalAmount] = useState(0);
   const dispatch = useDispatch();
 
-  // Get the withdrawable amount from Redux (replace with actual selector)
-  const reduxWithdrawalAmount =
-    useSelector(
-      (state) => state?.isLoggedUser?.data?.incomeDetails?.income?.currentIncome
-    ) || 0;
+  // Fetch fresh user data on mount to ensure withdrawalInfo is updated
+  useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        const response = await Axios.get("/user/get-user");
+        if (response?.data?.success) {
+          dispatch(loginUser({
+            token: response.data.token,
+            userId: response.data.data._id,
+            role: response.data.role,
+            data: response.data.data
+          }));
+        }
+      } catch (error) {
+        console.error("Error fetching fresh profile:", error);
+      }
+    };
+    fetchProfile();
+  }, [dispatch]);
+
+  // Get the withdrawable amount from Redux
+  const withdrawalInfo = useSelector((state) => state?.isLoggedUser?.data?.withdrawalInfo) || {};
+  const {
+    availableWithdrawalAmount = 0,
+    totalWithdrawableAmount = 0,
+    withdrawnAmount = 0
+  } = withdrawalInfo;
+
+  const reduxWithdrawalAmount = availableWithdrawalAmount;
 
   // Set withdrawalAmount when reduxWithdrawalAmount changes
   useEffect(() => {
     setWithdrawalAmount(reduxWithdrawalAmount);
   }, [reduxWithdrawalAmount]);
+
+  // Fallback to legacy check if new fields are empty (handling transition period)
+  // const legacyIncome = useSelector((state) => state?.isLoggedUser?.data?.incomeDetails?.income?.currentIncome) || 0;
+  // useEffect(() => {
+  //    if(availableWithdrawalAmount === 0 && legacyIncome > 0) setWithdrawalAmount(legacyIncome);
+  // }, [legacyIncome, availableWithdrawalAmount]);
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -234,7 +269,51 @@ const RequestWithdrawal = () => {
 
   return (
     <>
-      <div className="max-w-2xl mx-auto">
+      <div className="max-w-4xl mx-auto space-y-6">
+
+
+        {/* Top Stats Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {/* Card 1: Total Withdrawal (Requested/Total) */}
+          <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-5 rounded-2xl border border-blue-500/20 shadow-lg relative overflow-hidden group hover:border-blue-500/40 transition-all">
+            <div className="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
+              <Briefcase size={80} className="text-blue-500" />
+            </div>
+            <div className="relative z-10">
+              <p className="text-slate-400 text-sm font-medium mb-1">Total Withdrawal</p>
+              <h3 className="text-2xl font-bold text-white flex items-center gap-2">
+                {getMoneySymbol()} {formatAmount(totalWithdrawableAmount)}
+              </h3>
+            </div>
+          </div>
+
+          {/* Card 2: Available Withdrawal */}
+          <div className="bg-gradient-to-br from-blue-900/40 via-blue-900/20 to-slate-900 p-5 rounded-2xl border border-green-500/30 shadow-lg relative overflow-hidden group hover:border-green-500/50 transition-all">
+            <div className="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
+              <DollarSign size={80} className="text-green-500" />
+            </div>
+            <div className="relative z-10">
+              <p className="text-green-400/80 text-sm font-medium mb-1">Available Withdrawal</p>
+              <h3 className="text-2xl font-bold text-white flex items-center gap-2">
+                {getMoneySymbol()} {formatAmount(availableWithdrawalAmount)}
+              </h3>
+            </div>
+          </div>
+
+          {/* Card 3: Withdrawn Amount (History) */}
+          <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-5 rounded-2xl border border-purple-500/20 shadow-lg relative overflow-hidden group hover:border-purple-500/40 transition-all">
+            <div className="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
+              <CheckCircle size={80} className="text-purple-500" />
+            </div>
+            <div className="relative z-10">
+              <p className="text-slate-400 text-sm font-medium mb-1">Withdrawn Amount</p>
+              <h3 className="text-2xl font-bold text-white flex items-center gap-2">
+                {getMoneySymbol()} {formatAmount(withdrawnAmount)}
+              </h3>
+            </div>
+          </div>
+        </div>
+
         <div className="relative bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 border border-blue-800/30 rounded-3xl p-8 shadow-2xl hover:shadow-blue-500/10 transition-all duration-500 overflow-hidden">
           {/* Background Effects */}
           <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 via-transparent to-cyan-600/5"></div>
@@ -315,11 +394,10 @@ const RequestWithdrawal = () => {
               <div className="text-sm text-slate-400 flex justify-between items-center">
                 <span>Remaining Balance:</span>
                 <span
-                  className={`font-semibold ${
-                    Number(amount) > withdrawalAmount
-                      ? "text-red-400"
-                      : "text-yellow-400"
-                  }`}
+                  className={`font-semibold ${Number(amount) > withdrawalAmount
+                    ? "text-red-400"
+                    : "text-yellow-400"
+                    }`}
                 >
                   {getMoneySymbol()}
                   {formatAmount(remainingAmount)}
@@ -416,13 +494,12 @@ const RequestWithdrawal = () => {
               Number(amount) < 10 ||
               Number(amount) > withdrawalAmount
             }
-            className={`relative w-full py-4 px-6 rounded-xl font-bold text-lg transition-all duration-300 overflow-hidden group ${
-              !amount ||
+            className={`relative w-full py-4 px-6 rounded-xl font-bold text-lg transition-all duration-300 overflow-hidden group ${!amount ||
               Number(amount) < 10 ||
               Number(amount) > withdrawalAmount
-                ? "bg-slate-700/50 text-slate-500 cursor-not-allowed border border-slate-600/30"
-                : "bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white shadow-xl shadow-blue-500/25 hover:shadow-blue-500/40 hover:scale-[1.02] active:scale-[0.98] border border-blue-500/30"
-            }`}
+              ? "bg-slate-700/50 text-slate-500 cursor-not-allowed border border-slate-600/30"
+              : "bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white shadow-xl shadow-blue-500/25 hover:shadow-blue-500/40 hover:scale-[1.02] active:scale-[0.98] border border-blue-500/30"
+              }`}
           >
             <div className="relative flex items-center justify-center gap-3">
               <ArrowDownLeft className="w-5 h-5" />
@@ -430,8 +507,8 @@ const RequestWithdrawal = () => {
                 {!amount || Number(amount) < 10
                   ? "Enter Valid Amount"
                   : Number(amount) > withdrawalAmount
-                  ? "Amount Exceeds Balance"
-                  : `Confirm Withdrawal ${getMoneySymbol()}${formatAmount(
+                    ? "Amount Exceeds Balance"
+                    : `Confirm Withdrawal ${getMoneySymbol()}${formatAmount(
                       amount
                     )}`}
               </span>
@@ -456,6 +533,7 @@ const RequestWithdrawal = () => {
           </div>
         </div>
       </div>
+
       {/* <OtpModal
         show={showOtpModal}
         onClose={() => setShowOtpModal(false)}
