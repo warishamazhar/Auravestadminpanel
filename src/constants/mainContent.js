@@ -20,15 +20,14 @@ export const backendConfig = {
   // base: "https://q0vn1d1k-6095.inc1.devtunnels.ms/api",
   // origin: "https://q0vn1d1k-6095.inc1.devtunnels.ms/",
 
-  // base: "http://localhost:5008/api",
-  // origin: "http://localhost:5008",
-  base: "https://api.auravest.world/api",
-  origin: "https://api.auravest.world/",
+  base: "http://localhost:5009/api",
+  origin: "http://localhost:5009",
+  // base: "https://api.auravest.world/api",
+  // origin: "https://api.auravest.world/",
   // base: "https://api.rbncropscience.in/api",
   // origin: "https://api.rbncropscience.in",
   // base: "https://cnfp6kct-8899.inc1.devtunnels.ms/api",
   // origin: "https://cnfp6kct-8899.inc1.devtunnels.ms",
-
 };
 
 export const Axios = axios.create({
