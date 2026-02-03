@@ -13,14 +13,19 @@ export const MainContent = {
   appName: "Auravest"
 };
 
-export const backendConfig = {
+// export const backendConfig = {
 
-  // base: "http://localhost:5009/api",
-  // origin: "http://localhost:5009",
+//   // base: "http://localhost:5009/api",
+//   // origin: "http://localhost:5009",
 
-  base: "https://api.auravest.world/api",
-  origin: "https://api.auravest.world/",
+//   base: "https://api.auravest.world/api",
+//   origin: "https://api.auravest.world/",
   
+// };
+
+export const backendConfig = {
+  base: import.meta.env.VITE_API_URL,
+  origin: import.meta.env.VITE_API_ORIGIN,
 };
 
 export const Axios = axios.create({

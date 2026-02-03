@@ -99,21 +99,22 @@
 }
 
 
-.dark {
-  /* Enhanced dark mode variations */
+/* .dark {
+  /* Enhanced dark mode variations 
   --hero-bg-gradient: linear-gradient(135deg, var(--rich-black) 0%, var(--raisin-black) 50%, var(--space-cadet) 100%);
   --glass-bg: hsla(var(--raisin-black-hsl), 0.6);
   --card-bg: var(--raisin-black);
   --input-bg: var(--space-cadet-2);
-}
+} */
 
 body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
-  background-color: var(--background-dark);
-  color: var(--text-light);
+  background-color: #ffffff; /* pure white */
+  color: #081F5C;
   line-height: 1.6;
 }
+
 
 /* Hero Specific Styles */
 .hero-glass {
@@ -190,26 +191,26 @@ body {
 .animate-grid { animation: grid-flow 20s linear infinite; }
 .animate-rotate-slow { animation: rotate 20s linear infinite; }
 
-/* Utility Classes */
+/* Utility Classes
 .bg-hero-gradient { background: var(--hero-bg-gradient); }
 .bg-gold-gradient { background: var(--gradient-gold); }
 .bg-navy-gradient { background: var(--gradient-navy); }
 .bg-rich-black { background-color: var(--rich-black); }
 .bg-space-cadet { background-color: var(--space-cadet); }
-.bg-raisin-black { background-color: var(--raisin-black); }
+.bg-raisin-black { background-color: var(--raisin-black); } */
 
-.text-hero-primary { color: var(--hero-text-primary); }
+/* .text-hero-primary { color: var(--hero-text-primary); }
 .text-hero-secondary { color: var(--hero-text-secondary); }
 .text-hero-accent { color: var(--hero-text-accent); }
 .text-ecru { color: var(--ecru); }
 .text-beaver { color: var(--beaver); }
-.text-chamoisee { color: var(--chamoisee); }
+.text-chamoisee { color: var(--chamoisee); } */
 
-.border-hero-gold { border-color: var(--glass-border); }
-.border-delft-blue { border-color: var(--delft-blue); }
+/* .border-hero-gold { border-color: var(--glass-border); }
+.border-delft-blue { border-color: var(--delft-blue); } */
 
 /* Individual Color Classes */
-.bg-delft-blue { background-color: var(--delft-blue); }
+/* .bg-delft-blue { background-color: var(--delft-blue); }
 .bg-chamoisee { background-color: var(--chamoisee); }
 .bg-ecru { background-color: var(--ecru); }
 .bg-space-cadet { background-color: var(--space-cadet); }
@@ -218,8 +219,8 @@ body {
 .bg-rich-black { background-color: var(--rich-black); }
 .bg-space-cadet-2 { background-color: var(--space-cadet-2); }
 .bg-delft-blue-2 { background-color: var(--delft-blue-2); }
-.bg-raisin-black { background-color: var(--raisin-black); }
-
+.bg-raisin-black { background-color: var(--raisin-black); } */
+/* 
 .text-delft-blue { color: var(--delft-blue); }
 .text-chamoisee { color: var(--chamoisee); }
 .text-ecru { color: var(--ecru); }
@@ -229,7 +230,7 @@ body {
 .text-rich-black { color: var(--rich-black); }
 .text-space-cadet-2 { color: var(--space-cadet-2); }
 .text-delft-blue-2 { color: var(--delft-blue-2); }
-.text-raisin-black { color: var(--raisin-black); }
+.text-raisin-black { color: var(--raisin-black); } */
 
 /* Component Styles */
 .card {
@@ -358,4 +359,135 @@ body {
   color: #ef4444;
   background: hsla(0, 84%, 60%, 0.1);
   border: 1px solid hsla(0, 84%, 60%, 0.3);
+}
+
+/* =====================================
+   PREMIUM LIGHT THEME (Pinterest Based)
+   ===================================== */
+
+:root {
+  /* ===== Backgrounds ===== */
+  --background-dark: #FEF9F0;        /* page background */
+  --background-medium: #F7F2EB;
+  --card-bg: #FFFFFF;
+  --sidebar-bg: #FFFFFF;
+  --header-bg: #FFFFFF;
+  --input-bg: #FFFFFF;
+
+  /* ===== Text ===== */
+  --text-light: #081F5C;             /* main text */
+  --text-muted: #475569;
+
+  /* ===== Borders ===== */
+  --border-color: #E2E8F0;
+
+  /* ===== Hero ===== */
+  --hero-bg-gradient: linear-gradient(
+    135deg,
+    #FFFFFF 0%,
+    #EDF1F6 50%,
+    #D0E3FF 100%
+  );
+
+  --hero-text-primary: #081F5C;
+  --hero-text-secondary: #334EAC;
+  --hero-text-accent: #334EAC;
+
+  /* ===== Glass ===== */
+  --glass-bg: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(51, 78, 172, 0.12);
+
+  /* ===== Buttons ===== */
+  --btn-primary-bg: linear-gradient(135deg, #334EAC 0%, #e0e3c0 100%);
+  --btn-primary-hover: linear-gradient(135deg, #081F5C 0%, #334EAC 100%);
+  --btn-primary-text: #FFFFFF;
+
+  --btn-secondary-bg: #EDF1F6;
+  --btn-secondary-text: #081F5C;
+  --btn-secondary-border: #BAD6EB;
+  --btn-secondary-hover: #D0E3FF;
+
+  /* ===== Accents ===== */
+  --gradient-gold: linear-gradient(135deg, #334EAC, #7096D1);
+  --gradient-gold-text: linear-gradient(135deg, #334EAC, #081F5C);
+
+  /* ===== Scrollbar ===== */
+  --space-cadet: #F7F2EB;
+  --delft-blue: #bac0eb;
+  --delft-blue-2: #7096D1;
+}
+/* ===============================
+   DASHBOARD PREMIUM BLUE CARDS
+   =============================== */
+
+.card {
+  background: linear-gradient(
+    135deg,
+    #4365e0 0%,
+    #f2d1a9 100%
+  ) !important;
+
+  border: none !important;
+  border-radius: 16px;
+  padding: 1.75rem;
+
+  box-shadow:
+    0 12px 30px rgba(51, 78, 172, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 20px 45px rgba(51, 78, 172, 0.45);
+}
+/* ===============================
+   GOLD TEXT INSIDE DASHBOARD CARDS
+   =============================== */
+
+.card,
+.card * {
+  color: #EDCF8C !important; /* premium gold */
+  font-weight: 600;
+}
+
+.card h1,
+.card h2,
+.card h3,
+.card h4 {
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+.card svg,
+.card img {
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+}
+/* ===============================
+   FORCE GLOBAL LIGHT BACKGROUND
+   =============================== */
+
+html,
+body {
+  background: #F7F2EB !important; /* Moon color */
+  color: #081F5C !important;
+}
+/* ===============================
+   FORCE LIGHT LAYOUT
+   =============================== */
+
+.sidebar {
+  background: #FFFFFF !important;
+}
+
+.header {
+  background: #FFFFFF !important;
+}
+
+.main,
+.main-content,
+.dashboard,
+.page-wrapper {
+  background: #F7F2EB !important;
 }

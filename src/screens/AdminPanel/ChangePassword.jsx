@@ -187,16 +187,16 @@ export default function ChangePassword() {
           <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-500/20 rounded-full mb-4 backdrop-blur-sm border border-blue-500/30">
             <Shield className="w-8 h-8 text-blue-400" />
           </div>
-          <h1 className="text-3xl font-bold text-white mb-2">
+          <h1 className="text-3xl font-bold text-blue-600 mb-2">
             Change Password
           </h1>
-          <p className="text-slate-400">
+          <p className="text-yellow-400">
             Update your account security credentials
           </p>
         </div>
 
         {/* Form Card */}
-        <div className="bg-slate-800/50 backdrop-blur-xl rounded-2xl shadow-2xl border border-slate-700/50 p-8">
+        <div className="bg-gradient-to-r from-[#334EAC] to-[#7096D1] backdrop-blur-xl rounded-2xl shadow-2xl border border-slate-700/50 p-8">
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Current Password */}
             <div>

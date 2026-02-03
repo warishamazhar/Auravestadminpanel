@@ -10,17 +10,14 @@ import { loadUserFromStorage } from "../../redux/slices/authSlice";
 
 const RouterPage = () => {
   const dispatch = useDispatch();
-  const theme = useSelector((state) => state?.toggleThemeSlice?.theme);
+  // const theme = useSelector((state) => state?.toggleThemeSlice?.theme);
 
   // Apply Redux theme to <html>
   useEffect(() => {
-    const root = document.documentElement;
-    if (theme === "dark") {
-      root.classList.add("dark");
-    } else {
-      root.classList.remove("dark");
-    }
-  }, [theme]);
+  const root = document.documentElement;
+  root.classList.remove("dark"); // force light
+}, []);
+
 
   useEffect(() => {
     dispatch(loadUserFromStorage());

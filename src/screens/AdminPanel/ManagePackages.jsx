@@ -447,8 +447,8 @@ const ManagePackage = () => {
     <div className="space-y-8 pt-4">
       <div className="flex justify-between items-center">
         <div>
-          <h1 className="text-3xl font-bold text-white">Manage Packages</h1>
-          <p className="text-slate-400 mt-1">
+          <h1 className="text-3xl font-bold text-blue-800">Manage Packages</h1>
+          <p className="text-yellow-600 mt-1">
             Create, update, and delete investment packages.
           </p>
         </div>

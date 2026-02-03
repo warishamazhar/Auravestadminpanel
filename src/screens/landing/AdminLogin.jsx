@@ -10,6 +10,7 @@ import {
 import { loginUser } from "../../redux/slices/authSlice";
 import { setLoading } from "../../redux/slices/loadingSlice";
 import { toast } from "react-toastify";
+import { AuthenticatedAdminRouters } from "../../constants/routes";
 import { adminLogin } from "../../api/admin.api";
 
 const AdminLogin = () => {
@@ -42,7 +43,12 @@ const AdminLogin = () => {
           text: "You have logged in successfully",
           timer: 3000,
         }).then(() => {
-          navigate(AuthenticatedUserRouters.DASHBOARD);
+         if (response?.data?.role === "ADMIN") {
+  navigate(AuthenticatedAdminRouters.ADMIN_DASHBOARD);
+} else {
+  navigate(AuthenticatedUserRouters.DASHBOARD);
+}
+
         });
       } else {
         toast.error(response?.message || "Something went wrong");

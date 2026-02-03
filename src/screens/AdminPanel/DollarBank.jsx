@@ -254,7 +254,7 @@ const DollarBank = () => {
           <Building2 className="w-6 h-6 text-yellow-400" />
         </div>
         <div>
-          <h1 className="text-3xl font-bold text-white">Dollar Bank Management</h1>
+          <h1 className="text-3xl font-bold text-blue-600">Dollar Bank Management</h1>
           <p className="text-slate-400 mt-1">
             View summary and manage all Dollar Bank investments
           </p>
