@@ -51,9 +51,9 @@ const AddFund = () => {
 
   return (
     <div>
-      <div className="bg-gradient-to-r from-[#334EAC] to-[#7096D1] border border-slate-700/50 rounded-2xl p-8 w-full my-4">
+      <div className="bg-gradient-to-r from-[#ecedf0] to-[#f5e7d3] border border-slate-700/50 rounded-2xl p-8 w-full my-4">
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-2xl font-bold text-yellow-600">Add Fund</h2>
+          <h2 className="text-2xl font-bold text-blue-600">Add Fund</h2>
         </div>
 
         <div className="space-y-4">
@@ -63,7 +63,7 @@ const AddFund = () => {
             </span>
           </div> */}
           <div>
-            <label className="text-sm text-yellow-200 mb-2 block">
+            <label className="text-sm text-yellow-400 mb-2 block">
               UserId or Wallet Address
             </label>
             <input
@@ -76,7 +76,7 @@ const AddFund = () => {
           </div>
 
           <div>
-            <label className="text-sm text-yellow-200 mb-2 block">
+            <label className="text-sm text-yellow-400 mb-2 block">
               Fund Amount ({getMoneySymbol()})
             </label>
             <input

@@ -196,16 +196,16 @@ export default function ChangePassword() {
         </div>
 
         {/* Form Card */}
-        <div className="bg-gradient-to-r from-[#334EAC] to-[#7096D1] backdrop-blur-xl rounded-2xl shadow-2xl border border-slate-700/50 p-8">
+        <div className="bg-gradient-to-r from-[#ecedf0] to-[#f5e7d3] backdrop-blur-xl rounded-2xl shadow-2xl border border-slate-700/50 p-8">
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Current Password */}
             <div>
-              <label className="block text-sm font-medium text-slate-300 mb-2">
+              <label className="block text-sm font-medium text-blue-400 mb-2">
                 Current Password
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <Lock className="h-5 w-5 text-slate-500" />
+                  <Lock className="h-5 w-5 text-blue-500" />
                 </div>
                 <input
                   type={showPassword.old ? "text" : "password"}
@@ -238,12 +238,12 @@ export default function ChangePassword() {
 
             {/* New Password */}
             <div>
-              <label className="block text-sm font-medium text-slate-300 mb-2">
+              <label className="block text-sm font-medium text-blue-400 mb-2">
                 New Password
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <Lock className="h-5 w-5 text-slate-500" />
+                  <Lock className="h-5 w-5 text-blue-500" />
                 </div>
                 <input
                   type={showPassword.new ? "text" : "password"}
@@ -277,7 +277,7 @@ export default function ChangePassword() {
               {formData.newPassword && !errors.newPassword && (
                 <div className="mt-2">
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-xs text-slate-400">
+                    <span className="text-xs text-blue-400">
                       Password Strength
                     </span>
                     <span
@@ -306,12 +306,12 @@ export default function ChangePassword() {
 
             {/* Confirm Password */}
             <div>
-              <label className="block text-sm font-medium text-slate-300 mb-2">
+              <label className="block text-sm font-medium text-blue-300 mb-2">
                 Confirm New Password
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <CheckCircle className="h-5 w-5 text-slate-500" />
+                  <CheckCircle className="h-5 w-5 text-blue-500" />
                 </div>
                 <input
                   type={showPassword.confirm ? "text" : "password"}
@@ -354,10 +354,10 @@ export default function ChangePassword() {
 
             {/* Password Requirements */}
             <div className="bg-slate-900/30 rounded-lg p-4 border border-slate-700/50">
-              <p className="text-xs font-medium text-slate-300 mb-2">
+              <p className="text-xs font-medium text-blue-300 mb-2">
                 Password must contain:
               </p>
-              <ul className="space-y-1 text-xs text-slate-400">
+              <ul className="space-y-1 text-xs text-blue-400">
                 <li className="flex items-center">
                   <span className="w-1.5 h-1.5 bg-blue-400 rounded-full mr-2"></span>
                   At least 8 characters

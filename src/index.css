@@ -423,8 +423,8 @@ body {
 .card {
   background: linear-gradient(
     135deg,
-    #4365e0 0%,
-    #f2d1a9 100%
+    #ecedf0 0%,
+    #f5e7d3 100%
   ) !important;
 
   border: none !important;
@@ -449,7 +449,7 @@ body {
 
 .card,
 .card * {
-  color: #EDCF8C !important; /* premium gold */
+  color:  #334EAC!important; /* premium gold */
   font-weight: 600;
 }
 
@@ -470,7 +470,7 @@ body {
 
 html,
 body {
-  background: #F7F2EB !important; /* Moon color */
+  background: #faf8f5 !important; /* Moon color */
   color: #081F5C !important;
 }
 /* ===============================

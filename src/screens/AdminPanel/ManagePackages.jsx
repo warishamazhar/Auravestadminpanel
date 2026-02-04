@@ -436,7 +436,7 @@ const ManagePackage = () => {
       header: "Created At",
       accessor: "createdAt",
       cell: (row) => (
-        <span className="text-slate-300">
+        <span className="text-blue-300">
           {new Date(row?.createdAt).toLocaleString()}
         </span>
       ),
@@ -497,8 +497,8 @@ const ManagePackage = () => {
       {/* Create/Edit Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4">
-          <div className="bg-slate-900 p-6 rounded-lg shadow-lg w-full max-w-md max-h-[90vh] overflow-y-auto">
-            <h2 className="text-xl font-semibold text-white mb-4">
+          <div className="bg-[#F7F2EB] p-6 rounded-lg shadow-lg w-full max-w-md max-h-[90vh] overflow-y-auto">
+            <h2 className="text-xl font-semibold text-blue-600 mb-4">
               {isCreateMode ? "Create New Package" : "Edit Package"}
             </h2>
             <form onSubmit={handleFormSubmit} className="space-y-4 text-sm">

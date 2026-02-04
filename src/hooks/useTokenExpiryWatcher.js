@@ -18,21 +18,21 @@ const useTokenExpiryWatcher = () => {
       const timeout = expiry - Date.now();
 
       if (timeout <= 0) {
-        dispatch(logoutUser());
+        // dispatch(logoutUser());
         navigate("/login");
         toast.error("Session expired. Please log in again.");
         return;
       }
 
       const timer = setTimeout(() => {
-        dispatch(logoutUser());
+        // dispatch(logoutUser());
         navigate("/login");
         toast.error("Session expired. Please log in again.");
       }, timeout);
 
       return () => clearTimeout(timer);
     } catch (err) {
-      dispatch(logoutUser());
+      // dispatch(logoutUser());
       navigate("/login");
     }
   }, [token, dispatch, navigate]);

@@ -192,8 +192,8 @@ const ManageRankAndReward = () => {
   return (
     <div className="space-y-5 mt-5">
       {/* Create Form */}
-      <div className="bg-gradient-to-r from-[#334EAC] to-[#7096D1] border border-slate-700/50 p-6 rounded-lg w-full">
-        <h2 className="text-xl font-bold text-yellow-200 mb-4">
+      <div className="bg-gradient-to-r from-[#ecedf0] to-[#f5e7d3] border border-slate-700/50 p-6 rounded-lg w-full">
+        <h2 className="text-xl font-bold text-blue-600 mb-4">
           Create New Rank and Reward
         </h2>
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -205,7 +205,7 @@ const ManageRankAndReward = () => {
               value={payload.title}
               onChange={handleInputChange}
               placeholder="Title"
-              className="w-full p-2 rounded border bg-blue-800 text-white text-sm"
+              className="w-full p-2 rounded border bg-[#f5e7d3] text-white text-sm"
             />
           </div>
           <div className="space-y-2">
@@ -216,7 +216,7 @@ const ManageRankAndReward = () => {
               value={payload.investment}
               onChange={handleInputChange}
               placeholder="Investment"
-              className="w-full p-2 rounded border bg-blue-800 text-white text-sm"
+              className="w-full p-2 rounded border bg-[#f5e7d3] text-white text-sm"
             />
           </div>
           <div className="space-y-2">
@@ -227,7 +227,7 @@ const ManageRankAndReward = () => {
               value={payload.reward}
               onChange={handleInputChange}
               placeholder="Reward"
-              className="w-full p-2 rounded border bg-blue-800 text-white text-sm"
+              className="w-full p-2 rounded border bg-[#f5e7d3] text-white text-sm"
             />
           </div>
 
@@ -243,7 +243,7 @@ const ManageRankAndReward = () => {
       </div>
 
       {/* Cards List */}
-      <h2 className="text-xl font-bold text-blue-800 mt-6">Rank & Reward List</h2>
+      <h2 className="text-xl font-bold text-blue-600 mt-6">Rank & Reward List</h2>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {filteredUsers?.map((row, index) => (
           <div

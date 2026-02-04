@@ -6,12 +6,16 @@ import {
 } from "../../utils/authStorage";
 
 const initialState = {
-  token: null,
+   isLoggedIn: true,
+  token: "demo-token",
   userId: null,
-  role: null,
-  data: null,
-  isLoggedIn: false,
-  isAuthChecked: false,  // Added flag to indicate auth loading is done
+   role: "admin",
+   data: {
+    role: "admin",
+    name: "Admin",
+    email: "admin@demo.com",
+   }
+  //isAuthChecked: false,  // Added flag to indicate auth loading is done
 };
 
 const authSlice = createSlice({

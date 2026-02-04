@@ -25,7 +25,13 @@ const RouterPage = () => {
   const loggedUser = useSelector((state) => state?.isLoggedUser?.isLoggedIn);
   // const loggedUser = true
 
-  return <Router>{loggedUser ? <Authenticated /> : <Auth />}</Router>;
+  // return <Router>{loggedUser ? <Authenticated /> : <Auth />}</Router>;
+  return (
+  <Router>
+    <Authenticated />
+  </Router>
+);
+
 };
 
 export default RouterPage;

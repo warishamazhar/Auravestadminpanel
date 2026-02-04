@@ -102,7 +102,7 @@ const Header3 = ({ onMenuClick }) => {
       cancelButtonText: "No, cancel",
     }).then((result) => {
       if (result.isConfirmed) {
-        dispatch(logoutUser());
+        // dispatch(logoutUser());
         toast.success("Logged out successfully");
         navigate(LandingRouters.USER_LOGIN);
       }
@@ -114,7 +114,7 @@ const Header3 = ({ onMenuClick }) => {
       <div className="flex items-center gap-4">
         <button
           onClick={onMenuClick}
-          className="lg:hidden text-slate-400 hover:text-white text-2xl"
+          className="lg:hidden text-yellow-400 hover:text-white text-2xl"
         >
           <i className="fa-solid fa-bars"></i>
         </button>
@@ -123,7 +123,7 @@ const Header3 = ({ onMenuClick }) => {
           <input
             type="text"
             placeholder="Search..."
-            className="w-full bg-slate-800/50 border border-slate-700/50 rounded-full py-2.5 pl-12 pr-4 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full bg-white border border-blue-700/50 rounded-full py-2.5 pl-12 pr-4 text-yellow-200 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
       </div>
@@ -213,15 +213,15 @@ const Header3 = ({ onMenuClick }) => {
           </div>
         </div>
 
-        <div className="hidden md:flex items-center gap-2 bg-slate-800/50 rounded-full px-3 py-1.5 border border-slate-700">
+        <div className="hidden md:flex items-center gap-2 bg-blue-600 rounded-full px-3 py-1.5 border border-slate-700">
           <div className="w-2.5 h-2.5 rounded-full bg-green-400 animate-pulse"></div>
-          <span className="text-xs font-semibold text-slate-300">Online</span>
+          <span className="text-xs font-semibold text-yellow-200">Online</span>
         </div>
 
         {/* Logout Icon Button */}
         <button
-          className="w-10 h-10 flex items-center justify-center rounded-full bg-slate-800/50 text-slate-400 
-                   hover:bg-red-500/20 hover:text-red-400 transition-colors duration-200 
+          className="w-10 h-10 flex items-center justify-center rounded-full bg-blue-600 text-slate-400 
+                   hover:bg-yellow-500/20 hover:text-yellow-400 transition-colors duration-200 
                    border border-slate-700 cursor-pointer"
           title="Logout"
           onClick={access ? () => handleSubmit(adminId) : logoutHandler}

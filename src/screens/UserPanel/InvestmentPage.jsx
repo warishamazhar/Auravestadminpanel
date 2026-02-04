@@ -140,7 +140,7 @@ const InvestmentPage = () => {
     <div className="space-y-8 pt-4">
       <div>
         <h1 className="text-3xl font-bold text-white">Investment Plans</h1>
-        <p className="text-slate-400 mt-1">
+        <p className="text-blue-400 mt-1">
           Choose a plan that fits your strategy and start earning.
         </p>
       </div>

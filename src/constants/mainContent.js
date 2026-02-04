@@ -66,7 +66,7 @@ Axios.interceptors.response.use(
       
       if (isAuthError || isAuthMessage) {
         // Clear user data from Redux
-        store.dispatch(logoutUser());
+        // store.dispatch(logoutUser());
         
         // Purge redux-persist storage
         persistor.purge();

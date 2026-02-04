@@ -12,7 +12,7 @@ const useLogout = () => {
         setLoading(true);
         // Clear localStorage or cookies if needed
         // Redux logout
-        dispatch(logoutUser());
+        // dispatch(logoutUser());
         setTimeout(() => {
             localStorage.clear();
             setLoading(false);

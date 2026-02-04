@@ -11,7 +11,7 @@ const PlanCard = ({ plan, onSelect, isAdmin=false }) => {
   return (
     <div
       className={`
-            bg-slate-800/40 backdrop-blur-lg border rounded-2xl p-6 flex flex-col relative
+           bg-gradient-to-r from-[#ecedf0] to-[#f5e7d3] backdrop-blur-lg border rounded-2xl p-6 flex flex-col relative
             ${
               isRecommended
                 ? "border-blue-500/80 shadow-2xl shadow-blue-600/20"
@@ -28,13 +28,13 @@ const PlanCard = ({ plan, onSelect, isAdmin=false }) => {
         </div>
       )}
 
-      <h3 className="text-xl font-bold text-white text-center uppercase">{plan.title}</h3>
-      <p className="text-5xl font-bold text-white text-center my-6">
+      <h3 className="text-xl font-bold text-blue-600 text-center uppercase">{plan.title}</h3>
+      <p className="text-5xl font-bold text-blue-400 text-center my-6">
         {getMoneySymbol()}{plan.min}
         {/* <span className="text-base font-normal text-slate-400"> / min</span> */}
       </p>
 
-      <ul className="space-y-3 text-slate-300 text-sm mb-8 flex-grow">
+      <ul className="space-y-3 text-blue-300 text-sm mb-8 flex-grow">
         {plan.features.map((feature, index) => (
           <li key={index} className="flex items-center gap-3">
             <i className="fa-solid fa-check-circle text-green-400"></i>
@@ -50,7 +50,7 @@ const PlanCard = ({ plan, onSelect, isAdmin=false }) => {
                     ${
                       isRecommended
                         ? "bg-blue-600 hover:bg-blue-500 cursor-pointer text-white shadow-lg shadow-blue-600/30"
-                        : "bg-slate-700/70 hover:bg-slate-700 cursor-pointer text-white"
+                        : "bg-blue-700 hover:bg-slate-700 cursor-pointer text-white"
                     }
                 `}
       >
