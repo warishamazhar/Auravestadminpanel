@@ -100,6 +100,7 @@ const Sidebar = ({ isOpen, onClose }) => {
   //   dispatch(fetchUserInfo());
   // }, [dispatch]);
   const role = useSelector((state) => state?.isLoggedUser?.role);
+  console.log("ROLE:", role);
   // const role = "ADMIN";
   const handleNavigate = (link) => {
     if (role === "ADMIN") {

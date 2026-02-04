@@ -9,9 +9,9 @@ const initialState = {
    isLoggedIn: true,
   token: "demo-token",
   userId: null,
-   role: "admin",
+   role: "ADMIN",
    data: {
-    role: "admin",
+    role: "ADMIN",
     name: "Admin",
     email: "admin@demo.com",
    }
